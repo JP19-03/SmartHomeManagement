@@ -60,7 +60,7 @@ public class DevicesController {
     @Operation(summary = "Update a device", description = "Update a device")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Device updated"),
-            @ApiResponse(responseCode = "400", description = "Device not found")
+            @ApiResponse(responseCode = "404", description = "Device not found")
     })
     public ResponseEntity<DeviceResource> updateDevice(@PathVariable Long id, @RequestBody UpdateDeviceResource resource) {
         var command = UpdateDeviceCommandFromResourceAssembler.toCommandFromResource(resource, id);
